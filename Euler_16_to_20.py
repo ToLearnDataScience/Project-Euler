@@ -13,7 +13,7 @@ No.16 [Power digit sum]
 What is the sum of the digits of the number 2^1000?
 """
 
-def Power_digit_sum_2(square) :
+def power_digit_sum_2(square) :
     result = 0
     num = 2 ** square
     str_num = str(num)
@@ -21,7 +21,7 @@ def Power_digit_sum_2(square) :
         result += int(s)
     return result
 
-answer = Power_digit_sum_2(1000)
+answer = power_digit_sum_2(1000)
 print(answer) # 1366
 
 '''
@@ -290,6 +290,89 @@ print(answer) # 1064
 
 
 
+
+
+
+
+"""
+No.19 [Counting Sundays]
+
+You are given the following information, but you may prefer to do some research for yourself.
+
+- 1 Jan 1900 was a Monday.
+- Thirty days has September,
+  April, June and November.
+  All the rest have thirty-one,
+  Saving February alone,
+  Which has twenty-eight, rain or shine.
+  And on leap years, twenty-nine.
+  A leap year occurs on any year evenly divisible by 4, but not on a century unless it is divisible by 400.
+
+How many Sundays fell on the first of the month during the twentieth century (1 Jan 1901 to 31 Dec 2000)?
+"""
+
+import calendar
+
+def counting_days(start, end) :
+    count = {}
+    for i in range(start, end+1) :
+        for j in range(1, 13) :
+            day = calendar.weekday(i, j, 1)
+            count[day] = count.get(day, 0) + 1
+    return count
+
+'''
+0 : 'Monday', 1: 'Tuesday', 2: 'Wednesday', 3: 'Thursday', 4: 'Friday', 5: 'Saturday', 6: 'Sunday'
+'''
+        
+answer = counting_days(1901, 2000)[6]
+print(answer) # 171
+
+'''
+[The answer]
+171
+'''
+
+
+
+
+
+
+
+
+
+
+"""
+No.20 [Factorial digit sum]
+
+n! means n × (n − 1) × ... × 3 × 2 × 1
+
+For example, 10! = 10 × 9 × ... × 3 × 2 × 1 = 3628800,
+and the sum of the digits in the number 10! is 3 + 6 + 2 + 8 + 8 + 0 + 0 = 27.
+
+Find the sum of the digits in the number 100!
+"""
+
+import math
+
+def find_factorial_digit_sum(number) :
+    result = 0
+    num = math.factorial(number)
+    str_num = str(num)
+    for s in str_num : 
+        result += int(s)
+    return result
+
+test = find_factorial_digit_sum(10)
+print(test) # 27
+
+answer = find_factorial_digit_sum(100)
+print(answer) # 648
+
+'''
+[The answer]
+648
+'''
 
 
 
