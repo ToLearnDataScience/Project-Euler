@@ -212,10 +212,43 @@ No.5 [Smallest multiple]
 What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20?
 """
 
+def smallest_multiple(number) :
+    result = True
+    result_list = []
+    prime_list = []
+    for i in range(2, number+1) : 
+        if i == 2 :
+            prime_list.append(2)
+        else : 
+            result_list = []
+            for j in range(2, i) :
+                if i % j == 0 :
+                    result = False
+                    result_list.append(result)
+            if False not in result_list : 
+                prime_list.append(i)
+    
+    num_list = []
+    
+    for p in prime_list :
+        cnt = 0
+        while p ** cnt < 20 :
+            cnt += 1
+        num_list.append(p**(cnt-1))
+        
+    answer = 1
+        
+    for n in num_list :
+        answer *= n
+    
+    return answer
 
+print(smallest_multiple(20)) # 232792560
 
-def Smallest_Multiple(number) :
-    pass
+'''
+[The answer]
+232792560
+'''
 
 
 
