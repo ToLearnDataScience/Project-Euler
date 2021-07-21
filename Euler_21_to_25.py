@@ -196,3 +196,40 @@ print(answer) # 4179871
 [The answer]
 4179871
 '''
+
+
+
+
+
+
+
+
+
+
+"""
+No.24 [Lexicographic permutations]
+
+A permutation is an ordered arrangement of objects. For example, 3124 is one possible permutation of the digits 1, 2, 3 and 4. 
+If all of the permutations are listed numerically or alphabetically, we call it lexicographic order. 
+The lexicographic permutations of 0, 1 and 2 are: 012   021   102   120   201   210
+What is the millionth lexicographic permutation of the digits 0, 1, 2, 3, 4, 5, 6, 7, 8 and 9?
+"""
+
+from itertools import permutations
+
+
+def lexicographic_permutations(number) : 
+    num_list = list(range(number+1))
+    per_list = list(permutations(num_list, len(num_list)))
+    return per_list
+    
+per = lexicographic_permutations(9)
+print(len(per)) # 3628800
+
+millionth_num = per[1000000-1]
+print(millionth_num) # (2, 7, 8, 3, 9, 1, 5, 4, 6, 0)
+
+'''
+[The answer]
+2783915460
+'''
