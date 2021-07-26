@@ -233,3 +233,66 @@ print(millionth_num) # (2, 7, 8, 3, 9, 1, 5, 4, 6, 0)
 [The answer]
 2783915460
 '''
+
+
+
+
+
+
+
+
+
+
+"""
+No.25 [1000-digit Fibonacci number]
+
+The Fibonacci sequence is defined by the recurrence relation:
+
+Fn = Fn−1 + Fn−2, where F1 = 1 and F2 = 1.
+Hence the first 12 terms will be:
+
+F1 = 1
+F2 = 1
+F3 = 2
+F4 = 3
+F5 = 5
+F6 = 8
+F7 = 13
+F8 = 21
+F9 = 34
+F10 = 55
+F11 = 89
+F12 = 144
+The 12th term, F12, is the first term to contain three digits.
+
+What is the index of the first term in the Fibonacci sequence to contain 1000 digits?
+"""
+
+def find_fibonacci(nth) :
+    fibonacci_list = [1, 1]
+    if nth == 1 or nth == 2 :
+        result = 1
+    else :
+        for i in range(nth) :
+            result = fibonacci_list[-2] + fibonacci_list[-1]
+            fibonacci_list.append(result)
+    return_value = fibonacci_list[nth-1]
+    return return_value
+
+cnt = 0
+
+while True :
+    cnt += 1 
+    value = find_fibonacci(cnt)
+    if len(str(value)) >= 1000 :
+        print(cnt)
+        break
+
+'''
+[The answer]
+4782
+'''
+
+
+
+
